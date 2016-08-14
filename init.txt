@@ -1,0 +1,52 @@
+# Configure file for creat_big_or_small_in.sh
+#
+# 1, IMPORTANT: Lines that providing the parameter values must be written from the very beginning.
+# 2, This file use Space(one or more) as field separator. 
+#    The creat_big_or_small_in.sh only searth the first two fields in each line,  so you could 
+#    add comments at the rest of each line.
+
+filename        big.in   # big.in or small.in
+epoch_indays    0.0      # only needed for big.in
+
+snowline  1.5            # snowline in AU
+is_density_begin   5        # the smallest density (g/cm^3) of the bodies inside the snowline
+is_density_end     6.5      # the bigest density (g/cm^3) of the bodies inside the snowline
+os_density_begin   2.5        # the smallest density (g/cm^3) of the bodies outside the snowline 
+os_density_end     3.5      # the bigest density (g/cm^3) outside the snowline
+
+# The au_powerlaw parameter discribe how the number of the initial bodies scale with orbital distance(a,AU).
+# i.e. TheNumberOfTheBodies \propto a**au_powerlaw
+# e.g. set this value to -0.5 means the initial bodies are distributed with a(AU) as a**(-0.5), corresponding 
+#      to the annular mass in a disk with an a**(-3/2) surface density profile.
+au_powerlaw	-0.5
+
+#################  equal mass bodies
+bodynumber      1000      # the number of the equal mass bodies
+bodymass_earth  0.01     # the equal mass (Earth mass)
+a_begin         0.5      # the distribution range of them, the inner a (AU)  
+a_end           5.5      # the outer a (AU)
+e_range         0.02     # the eccentricity range of them, from 0 to e_range
+i_range         0.1      # the inclination range of them, from 0 to i_range
+
+
+################# unequal mass bodies
+ne_bodynumber     0      # the number of the unequal bodies
+ne_mass_earth_rand_in  0.1     # set the initial random mass range, the inner(Earth mass)
+ne_mass_earth_rand_out  0.11     # the outer (Earth mass)
+ne_mass_earth_ScaleWithAU  0.25     # FinalMass = RandMass x AU^ne_mass_earth_ScaleWithAU
+ne_a_begin         0.5      # the distribution range, the inner a (AU)  
+ne_a_end           1.5      # the outer a (AU)
+ne_e_range         0.02     # the eccentricity range, from 0 to e_range
+ne_i_range         0.1      # the inclination range, from 0 to i_range
+
+############### big planet
+bignumber 2  # write here how many big planets you want, and set their parameters below, four line for each plante.    
+
+GP00001
+a e i
+g n M
+0 0 0
+GP00002
+a e i
+g n M
+0 0 0
